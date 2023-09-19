@@ -1,0 +1,88 @@
+jcz@estudar:~/ubuntu_jammy$ vagrant up
+Bringing machine 'node1' up with 'virtualbox' provider...
+==> node1: Importing base box 'ubuntu/jammy64'...
+==> node1: Matching MAC address for NAT networking...
+==> node1: Checking if box 'ubuntu/jammy64' version '20230828.0.0' is up to date...
+==> node1: A newer version of the box 'ubuntu/jammy64' for provider 'virtualbox' is
+==> node1: available! You currently have version '20230828.0.0'. The latest is version
+==> node1: '20230914.0.0'. Run `vagrant box update` to update.
+==> node1: Setting the name of the VM: ubuntu_jammy_node1_1695128901891_78505
+==> node1: Clearing any previously set network interfaces...
+==> node1: Preparing network interfaces based on configuration...
+    node1: Adapter 1: nat
+    node1: Adapter 2: hostonly
+==> node1: Forwarding ports...
+    node1: 22 (guest) => 2222 (host) (adapter 1)
+==> node1: Running 'pre-boot' VM customizations...
+==> node1: Booting VM...
+==> node1: Waiting for machine to boot. This may take a few minutes...
+    node1: SSH address: 127.0.0.1:2222
+    node1: SSH username: vagrant
+    node1: SSH auth method: private key
+    node1: Warning: Connection reset. Retrying...
+    node1: Warning: Remote connection disconnect. Retrying...
+    node1: 
+    node1: Vagrant insecure key detected. Vagrant will automatically replace
+    node1: this with a newly generated keypair for better security.
+    node1: 
+    node1: Inserting generated public key within guest...
+    node1: Removing insecure key from the guest if it's present...
+    node1: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> node1: Machine booted and ready!
+==> node1: Checking for guest additions in VM...
+    node1: The guest additions on this VM do not match the installed version of
+    node1: VirtualBox! In most cases this is fine, but in rare cases it can
+    node1: prevent things such as shared folders from working properly. If you see
+    node1: shared folder errors, please make sure the guest additions within the
+    node1: virtual machine match the version of VirtualBox you have installed on
+    node1: your host and reload your VM.
+    node1: 
+    node1: Guest Additions Version: 6.0.0 r127566
+    node1: VirtualBox Version: 6.1
+==> node1: Configuring and enabling network interfaces...
+==> node1: Mounting shared folders...
+    node1: /vagrant => /home/jcz/ubuntu_jammy
+==> node1: Running provisioner: ansible...
+Vagrant gathered an unknown Ansible version:
+
+
+and falls back on the compatibility mode '1.8'.
+
+Alternatively, the compatibility mode can be specified in your Vagrantfile:
+https://www.vagrantup.com/docs/provisioning/ansible_common.html#compatibility_mode
+
+    node1: Running ansible-playbook...
+
+PLAY [test] ********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+
+TASK [atualizar o cache de pacotes] ********************************************
+changed: [node1]
+
+TASK [install] *****************************************************************
+changed: [node1]
+
+TASK [Run Grafana installation script] *****************************************
+changed: [node1]
+
+TASK [Create jcz1 user] ********************************************************
+[DEPRECATION WARNING]: Encryption using the Python crypt module is deprecated. 
+The Python crypt module is deprecated and will be removed from Python 3.13. 
+Install the passlib library for continued encryption functionality. This 
+feature will be removed in version 2.17. Deprecation warnings can be disabled 
+by setting deprecation_warnings=False in ansible.cfg.
+changed: [node1]
+
+TASK [Edit SSHD Config] ********************************************************
+changed: [node1]
+
+TASK [Add sudo rights for jcz1] ************************************************
+changed: [node1]
+
+RUNNING HANDLER [restart_sshd] *************************************************
+changed: [node1]
+
+PLAY RECAP *********************************************************************
+node1                      : ok=8    changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0  
