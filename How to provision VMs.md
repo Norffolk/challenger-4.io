@@ -101,10 +101,9 @@ end
         content: "jcz1 ALL=(root) NOPASSWD: ALL"
         backup: true
 ```
-
 *this is my playbook*
 
-*in the playbook i need use the script to install grafana-server, therefore i will create the grafana.sh in the same directory of ansible and Vagrantfile:
+*in the playbook i need use the script to install grafana-server, therefore i will create the grafana.sh in the same directory of ansible and Vagrantfile:*
 
 ```
 sudo apt-get install -y software-properties-common wget
